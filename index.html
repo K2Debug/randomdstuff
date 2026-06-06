@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You, Babu Sengo The Journey</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-1: #fdf0ff; --bg-2: #f0d4ff; --bg-3: #e8b4ff;
+      --accent-1: #c084fc; --accent-2: #a855f7; --accent-3: #7c3aed;
+      --text: #2d1b4e; --text-muted: #6b4f8a;
+      --glass: rgba(255,255,255,0.45); --glass-border: rgba(200,132,252,0.4);
+      --glow: rgba(168,85,247,0.35); --card-shadow: 0 12px 40px rgba(168,85,247,0.2);
+      --effect-color: #d8b4fe;
+      --transition-theme: 1s cubic-bezier(0.4, 0, 0.2, 1);
+      --z-content: 10; --z-fx: 20; --z-phonk-fade: 30;
+      --z-emoji: 8000; --z-player: 9500; --z-modal: 10000;
+    }
+
+    body[data-theme="landing"] {
+      --bg-1: #fff5f8; --bg-2: #ffe4ec; --bg-3: #ffc8d9;
+      --accent-1: #ff8fab; --accent-2: #fb6f92; --accent-3: #e84a7a;
+      --text: #4a2035; --text-muted: #9a5a72;
+      --glass: rgba(255,255,255,0.6); --glass-border: rgba(255, 180, 200, 0.55);
+      --glow: rgba(251, 111, 146, 0.28); --card-shadow: 0 12px 40px rgba(251, 111, 146, 0.18);
+      --effect-color: #ffb3c6;
+    }
+
+    body[data-theme="anime"] {
+      --bg-1: #fdf0ff; --bg-2: #f0d4ff; --bg-3: #e8b4ff;
+      --accent-1: #c084fc; --accent-2: #a855f7; --accent-3: #7c3aed;
+      --text: #2d1b4e; --text-muted: #6b4f8a;
+      --glass: rgba(255,255,255,0.45); --glass-border: rgba(200,132,252,0.4);
+      --glow: rgba(168,85,247,0.35); --card-shadow: 0 12px 40px rgba(168,85,247,0.2);
+      --effect-color: #d8b4fe;
+    }
+
+    body[data-theme="pop"] {
+      --bg-1: #fff5f8; --bg-2: #ffffff; --bg-3: #ffe4ec;
+      --accent-1: #ff8fab; --accent-2: #fb6f92; --accent-3: #e84a7a;
+      --text: #4a2035; --text-muted: #9a5a72;
+      --glass: rgba(255,255,255,0.65); --glass-border: rgba(255,200,217,0.6);
+      --glow: rgba(251,111,146,0.25); --card-shadow: 0 12px 40px rgba(251,111,146,0.15);
+      --effect-color: #ffb3c6;
+    }
+
+    body[data-theme="country"] {
+      --bg-1: #fff8f0; --bg-2: #ffe8cc; --bg-3: #ffd699;
+      --accent-1: #f59e0b; --accent-2: #d97706; --accent-3: #b45309;
+      --text: #451a03; --text-muted: #92400e;
+      --glass: rgba(255,255,255,0.5); --glass-border: rgba(245,158,11,0.35);
+      --glow: rgba(245,158,11,0.3); --card-shadow: 0 12px 40px rgba(217,119,6,0.2);
+      --effect-color: #fbbf24;
+    }
+
+    body[data-theme="drill"] {
+      --bg-1: #0a1628; --bg-2: #0f2744; --bg-3: #1a3a5c;
+      --accent-1: #22d3ee; --accent-2: #06b6d4; --accent-3: #0891b2;
+      --text: #e0f2fe; --text-muted: #7dd3fc;
+      --glass: rgba(15,39,68,0.7); --glass-border: rgba(34,211,238,0.3);
+      --glow: rgba(34,211,238,0.35); --card-shadow: 0 12px 40px rgba(6,182,212,0.25);
+      --effect-color: #22d3ee;
+    }
+
+    body[data-theme="phonk"] {
+      --bg-1: #0a0a0a; --bg-2: #1a0505; --bg-3: #2d0a0a;
+      --accent-1: #ef4444; --accent-2: #dc2626; --accent-3: #991b1b;
+      --text: #fecaca; --text-muted: #f87171;
+      --glass: rgba(20,5,5,0.85); --glass-border: rgba(239,68,68,0.4);
+      --glow: rgba(220,38,38,0.5); --card-shadow: 0 12px 40px rgba(220,38,38,0.3);
+      --effect-color: #ef4444;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { height: 100%; overflow: hidden; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--text);
+      background: linear-gradient(160deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));
+      background-attachment: fixed;
+      line-height: 1.7;
+      transition: background var(--transition-theme), color var(--transition-theme);
+    }
+
+    .bg-gradient {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background: radial-gradient(ellipse at 20% 20%, var(--glow), transparent 50%),
+                  radial-gradient(ellipse at 80% 80%, var(--glow), transparent 50%);
+      transition: background var(--transition-theme);
+    }
+
+    .fx-layer {
+      position: fixed; inset: 0; pointer-events: none; z-index: var(--z-fx); overflow: hidden;
+    }
+
+    .fx-item {
+      position: absolute; opacity: 0.35;
+      animation: fx-float linear infinite;
+      color: var(--effect-color);
+    }
+
+    @keyframes fx-float {
+      0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      8% { opacity: 0.45; }
+      92% { opacity: 0.45; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    .chapter-fade {
+      position: fixed; inset: 0; background: #000;
+      opacity: 0; pointer-events: none; z-index: calc(var(--z-content) + 5);
+      transition: opacity 0.8s ease;
+    }
+
+    .chapter-fade.active { opacity: 1; pointer-events: all; }
+
+    .phonk-fade {
+      position: fixed; inset: 0; background: #000;
+      opacity: 0; pointer-events: none; z-index: calc(var(--z-content) + 8);
+      transition: opacity 0.8s ease;
+    }
+
+    .phonk-fade.active { opacity: 1; }
+
+    .emoji-rain-layer {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: var(--z-emoji); overflow: hidden;
+    }
+
+    .rain-emoji {
+      position: fixed; top: -50px; will-change: transform;
+      animation: emoji-fall linear forwards;
+      opacity: 0.9;
+      filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6));
+    }
+
+    @keyframes emoji-fall {
+      from { transform: translateY(0); }
+      to { transform: translateY(calc(100vh + 80px)); }
+    }
+
+    #experience {
+      position: relative; z-index: var(--z-content);
+      height: 100vh; overflow: hidden;
+    }
+
+    #experience.phonk-glitch { animation: phonk-glitch 3s infinite; }
+
+    @keyframes phonk-glitch {
+      0%, 90%, 100% { filter: none; }
+      91% { filter: hue-rotate(15deg) saturate(1.4); }
+      92% { filter: hue-rotate(-15deg); }
+      93% { filter: none; }
+    }
+
+    /* ── View panels (hero + chapters) ── */
+    .view-panel {
+      position: absolute; inset: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      opacity: 0; visibility: hidden;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease, visibility 0.7s;
+    }
+
+    .view-panel.active {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+
+    .panel-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 8rem;
+    }
+
+    .glass {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      box-shadow: var(--card-shadow);
+      transition: background var(--transition-theme), border-color var(--transition-theme), box-shadow var(--transition-theme);
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2rem; border-radius: 50px; border: none;
+      font-family: inherit; font-weight: 600; font-size: 0.95rem;
+      cursor: pointer; transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: white; box-shadow: 0 6px 24px var(--glow);
+    }
+
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 32px var(--glow); }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.3); color: var(--text);
+      border: 1px solid var(--glass-border);
+    }
+
+    /* Hero */
+    .hero-panel {
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 2rem 1.5rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent-2); margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 10vw, 5rem);
+      font-weight: 700; line-height: 1.05;
+    }
+
+    .hero-title .line1 {
+      display: block;
+      background: linear-gradient(135deg, var(--text), var(--accent-2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-title .heart {
+      display: inline-block;
+      animation: heartbeat 1.4s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.25); }
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-style: italic; color: var(--text-muted);
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    /* Chapter content */
+    .chapter-header { text-align: center; margin-bottom: 2.5rem; }
+
+    .chapter-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.4rem 1rem; border-radius: 50px;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: white; margin-bottom: 1rem;
+    }
+
+    .chapter-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700; margin-bottom: 0.5rem;
+      text-shadow: 0 0 40px var(--glow);
+    }
+
+    .chapter-mood {
+      font-style: italic; color: var(--text-muted); font-size: 1rem;
+    }
+
+    .chapter-intro {
+      padding: 2rem; font-size: 1.05rem; color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .chapter-intro strong { color: var(--accent-3); }
+
+    .subsection {
+      margin-bottom: 3rem;
+    }
+
+    .photo-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; align-items: center;
+    }
+
+    .photo-card.stack {
+      grid-template-columns: 1fr; max-width: 640px; margin: 0 auto;
+    }
+
+    .photo-wrap {
+      border-radius: 20px; overflow: hidden; box-shadow: var(--card-shadow);
+    }
+
+    .photo-wrap img {
+      width: 100%; height: 320px; object-fit: cover; display: block;
+    }
+
+    .photo-caption h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; margin-bottom: 0.5rem;
+    }
+
+    .photo-caption .funny { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.98rem; }
+
+    .photo-caption .note {
+      padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.3);
+      border-radius: 12px;
+      border-left: 3px solid var(--accent-2);
+      font-size: 0.92rem;
+    }
+
+    .photo-caption .note i { color: var(--accent-2); margin-right: 0.35rem; }
+
+    /* ── Section navigation ── */
+    .section-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding: 2.5rem 0 1rem;
+      margin-top: 2rem;
+      border-top: 1px solid var(--glass-border);
+    }
+
+    .hero-panel .section-nav { display: none; }
+
+    .appreciation-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .appreciation-inner {
+      text-align: center;
+      padding-top: 2rem;
+      padding-bottom: 8rem;
+    }
+
+    .appreciation-body {
+      padding: 2.5rem 2rem;
+      margin: 2rem 0;
+      text-align: left;
+      font-size: 1.08rem;
+      color: var(--text-muted);
+    }
+
+    .appreciation-body p { margin-bottom: 1.15rem; }
+    .appreciation-body p:last-child { margin-bottom: 0; }
+    .appreciation-body strong { color: var(--accent-3); }
+
+    .appreciation-divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-2), transparent);
+      margin: 0 auto 2rem;
+    }
+
+    .section-nav .btn {
+      padding: 0.75rem 1.35rem;
+      font-size: 0.88rem;
+    }
+
+    .section-nav .btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .btn-nav-prev {
+      background: rgba(255,255,255,0.3);
+      color: var(--text);
+      border: 1px solid var(--glass-border);
+    }
+
+    .finale-quote {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      line-height: 1.5; text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .finale-quote .name { color: var(--accent-2); font-weight: 700; }
+
+    .finale-footer {
+      text-align: center; font-size: 0.9rem; color: var(--text-muted);
+    }
+
+    .finale-heart { color: var(--accent-2); animation: heartbeat 1.4s ease infinite; }
+
+    .chapter-now-playing {
+      position: fixed; top: 1rem; left: 50%;
+      transform: translateX(-50%) translateY(-120%);
+      z-index: calc(var(--z-content) + 3);
+      padding: 0.45rem 1.2rem;
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent-2);
+      opacity: 0;
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .chapter-now-playing.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Player */
+    .player {
+      position: fixed; bottom: 1.25rem; right: 1.25rem;
+      width: min(340px, calc(100vw - 2rem));
+      padding: 1rem 1.25rem;
+      z-index: var(--z-player);
+      pointer-events: auto; isolation: isolate;
+      transform: translateY(calc(100% + 3rem)); opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s;
+    }
+
+    .player.visible { transform: translateY(0); opacity: 1; }
+
+    .player-label {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--accent-2); margin-bottom: 0.2rem;
+    }
+
+    .player-track-name {
+      font-weight: 600; font-size: 0.95rem; margin-bottom: 0.65rem;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+
+    .player-row { display: flex; align-items: center; gap: 0.65rem; }
+
+    .player-btn {
+      width: 40px; height: 40px; border-radius: 50%; border: none;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      color: white; cursor: pointer; flex-shrink: 0; font-size: 0.9rem;
+    }
+
+    .player-progress { flex: 1; min-width: 0; }
+
+    .player-times {
+      display: flex; justify-content: space-between;
+      font-size: 0.65rem; color: var(--text-muted); margin-bottom: 0.25rem;
+    }
+
+    .player-bar {
+      height: 5px; background: rgba(128,128,128,0.25);
+      border-radius: 3px; cursor: pointer;
+    }
+
+    .player-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      border-radius: 3px;
+    }
+
+    /* Transition modal */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.75); backdrop-filter: blur(12px);
+      z-index: var(--z-modal);
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s, visibility 0.4s;
+    }
+
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+
+    .modal {
+      width: min(480px, 100%); padding: 2.5rem 2rem; text-align: center;
+      transform: scale(0.92) translateY(12px);
+      transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal-overlay.open .modal { transform: scale(1) translateY(0); }
+
+    .modal-icon { font-size: 2rem; margin-bottom: 0.75rem; color: var(--accent-2); }
+
+    .modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; margin-bottom: 0.75rem;
+    }
+
+    .modal p { color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.98rem; }
+
+    .modal-detail {
+      font-size: 0.85rem; font-style: italic;
+      color: var(--text-muted); margin-bottom: 1.75rem !important;
+    }
+
+    .modal-actions {
+      display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
+    }
+
+    .modal-overlay.phonk-transition .modal {
+      border: 2px solid #ef4444;
+      box-shadow: 0 0 60px rgba(239,68,68,0.4);
+    }
+
+    .modal-overlay.phonk-transition h2 { color: #ef4444; }
+
+    @media (max-width: 768px) {
+      .photo-card { grid-template-columns: 1fr; }
+      .photo-wrap img { height: 260px; }
+      .player { left: 1rem; right: 1rem; width: auto; }
+      .panel-inner { padding-bottom: 10rem; }
+    }
+  </style>
+</head>
+<body data-theme="landing">
+
+  <div class="bg-gradient"></div>
+  <div class="fx-layer" id="fxLayer"></div>
+  <div class="chapter-fade" id="chapterFade"></div>
+  <div class="phonk-fade" id="phonkFade"></div>
+  <div class="emoji-rain-layer" id="emojiRain"></div>
+
+  <div class="chapter-now-playing glass" id="chapterNowPlaying"></div>
+
+  <div id="experience">
+
+    <!-- HERO -->
+    <section class="view-panel hero-panel active" id="panel-hero" data-panel="hero">
+      <div>
+        <p class="hero-eyebrow"><i class="fa-solid fa-sparkles"></i> For One Legend</p>
+        <h1 class="hero-title">
+          <span class="line1">THANK YOU</span>
+          <span class="line2">BABU SENGO <span class="heart">❤️</span></span>
+        </h1>
+        <p class="hero-sub">"A small website for a very large thank you."</p>
+        <button class="btn btn-primary" id="btnStart">
+          Start Journey
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- CHAPTER 1: ANIME -->
+    <section class="view-panel chapter-panel" id="panel-anime" data-panel="anime" data-track="anime">
+      <div class="panel-inner">
+        <header class="chapter-header">
+          <span class="chapter-badge"><i class="fa-solid fa-star"></i> Chapter I</span>
+          <h2 class="chapter-title">Main Character Arc</h2>
+          <p class="chapter-mood">Pink & purple · Sparkles · Opening credits energy</p>
+        </header>
+
+        <div class="glass chapter-intro subsection">
+          <p>Babu, this whole journey starts here because you trusted me with your <strong>Pro accounts</strong>. Not a small thing. A main-character-move. Because of you, I got to <strong>learn, build, experiment, and grow</strong> in ways I couldn't have alone. What felt casual to you? Massive to me.</p>
+        </div>
+
+        <div class="subsection photo-card">
+          <div class="photo-wrap"><img src="images/mels1.png" alt="Melvin in golden field"></div>
+          <div class="photo-caption">
+            <h3>The Main Character Appears</h3>
+            <p class="funny">Golden field. Sunglasses. Zero awareness that he's about to become the protagonist of a gratitude anime. Main character energy? <strong>Certified.</strong></p>
+            <p class="note"><i class="fa-solid fa-heart"></i> This is the guy who handed me Pro access like it was nothing. Legend behavior.</p>
+          </div>
+        </div>
+
+        <div class="subsection photo-card">
+          <div class="photo-wrap"><img src="images/mels2.png" alt="Melvin under crescent moon"></div>
+          <div class="photo-caption">
+            <h3>Moonlight Diplomat</h3>
+            <p class="funny">Respectful under a glowing crescent moon. Meanwhile I'm at 2 AM learning to code on his subscription. The duality is cinematic.</p>
+            <p class="note"><i class="fa-solid fa-star"></i> You carry grace. I carry console.log errors. Beautiful teamwork.</p>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-nav-prev" data-goto="hero"><i class="fa-solid fa-arrow-left"></i> Previous Section</button>
+          <button class="btn btn-primary" data-goto="pop">Next Section <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 2: POP -->
+    <section class="view-panel chapter-panel" id="panel-pop" data-panel="pop" data-track="pop">
+      <div class="panel-inner">
+        <header class="chapter-header">
+          <span class="chapter-badge"><i class="fa-solid fa-heart"></i> Chapter II</span>
+          <h2 class="chapter-title">Friendship Montage</h2>
+          <p class="chapter-mood">Soft pink · Hearts · Wholesome pop energy</p>
+        </header>
+
+        <div class="glass chapter-intro subsection">
+          <p>Wholesale pop montage energy: friends laughing, supporting each other, and one of them secretly funding the other's entire learning arc. Spoiler: that's you, Babu. You didn't just share tools you shared <strong>belief</strong>.</p>
+        </div>
+
+        <div class="subsection photo-card">
+          <div class="photo-wrap"><img src="images/mels3.png" alt="Melvin and Rolls Royce"></div>
+          <div class="photo-caption">
+            <h3>The Rolls-Royce Investor</h3>
+            <p class="funny">Admiring a classic Rolls-Royce. His real investment? My potential. Better returns than the stock market. S&P 500 could never.</p>
+            <p class="note"><i class="fa-solid fa-gem"></i> You invest in people with the same taste you invest in everything else.</p>
+          </div>
+        </div>
+
+        <div class="subsection photo-card">
+          <div class="photo-wrap"><img src="images/mels4.png" alt="Melvin The Sponsor"></div>
+          <div class="photo-caption">
+            <h3>The Pro Account ATM</h3>
+            <p class="funny">Somewhere in this frame is a man who saw "premium subscription" and thought "my friend needs this." That's not sharing. That's <strong>sponsorship with love.</strong></p>
+            <p class="note"><i class="fa-solid fa-hand-holding-heart"></i> Every project I shipped has your name in the invisible credits.</p>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-nav-prev" data-goto="anime"><i class="fa-solid fa-arrow-left"></i> Previous Section</button>
+          <button class="btn btn-primary" data-goto="country">Next Section <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 3: COUNTRY -->
+    <section class="view-panel chapter-panel" id="panel-country" data-panel="country" data-track="country">
+      <div class="panel-inner">
+        <header class="chapter-header">
+          <span class="chapter-badge"><i class="fa-solid fa-sun"></i> Chapter III</span>
+          <h2 class="chapter-title">Sunset Gratitude</h2>
+          <p class="chapter-mood">Orange & gold · Warm · "My buddy" energy</p>
+        </header>
+
+        <div class="glass chapter-intro subsection">
+          <p>Golden hour gratitude. No flashy effects just real appreciation. You helped me when you didn't have to. That's the kind of friend people write songs about. I wrote a website instead. <strong>Same energy.</strong></p>
+        </div>
+
+        <div class="subsection photo-card">
+          <div class="photo-wrap"><img src="images/mels5.png" alt="Melvin Real One"></div>
+          <div class="photo-caption">
+            <h3>Emotionally Available Legend</h3>
+            <p class="funny">The friend who never makes you feel like you're asking too much even when "too much" is full Pro account access. Therapy is expensive. Babu is free. (Don't quote me.)</p>
+            <p class="note"><i class="fa-solid fa-users"></i> Real ones don't keep score. They just show up.</p>
+          </div>
+        </div>
+
+        <div class="subsection photo-card">
+          <div class="photo-wrap"><img src="images/mels6.png" alt="Melvin Built Different"></div>
+          <div class="photo-caption">
+            <h3>Built Different, Literally</h3>
+            <p class="funny">Every Babu photo is a different movie genre. This one? Biopic. Working title: <em>"The Man Who Funded My GitHub Era."</em></p>
+            <p class="note"><i class="fa-solid fa-film"></i> You make life look cinematic. I make spaghetti code. Perfect duo.</p>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-nav-prev" data-goto="pop"><i class="fa-solid fa-arrow-left"></i> Previous Section</button>
+          <button class="btn btn-primary" data-goto="drill">Next Section <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 4: DRILL -->
+    <section class="view-panel chapter-panel" id="panel-drill" data-panel="drill" data-track="drill">
+      <div class="panel-inner">
+        <header class="chapter-header">
+          <span class="chapter-badge"><i class="fa-solid fa-bolt"></i> Chapter IV</span>
+          <h2 class="chapter-title">Cold Confidence</h2>
+          <p class="chapter-mood">Dark blue · Cyan neon · Babu walked in</p>
+        </header>
+
+        <div class="glass chapter-intro subsection">
+          <p>Gratitude gets <strong>confident and cool</strong>. You didn't just help me you changed my trajectory. The neon is aesthetic; the appreciation underneath is dead serious.</p>
+        </div>
+
+        <div class="subsection photo-card stack">
+          <div class="photo-wrap"><img src="images/mels8.png" alt="Melvin The Enabler"></div>
+          <div class="photo-caption" style="margin-top:1.25rem;">
+            <h3>The Enabler Era</h3>
+            <p class="funny">Not the bad kind. The "take my premium tools and go become somebody" kind. Startup incubator vibes, zero equity demands.</p>
+            <p class="note"><i class="fa-solid fa-rocket"></i> You enabled my growth without ever making it feel like a debt. That's rare.</p>
+          </div>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-nav-prev" data-goto="country"><i class="fa-solid fa-arrow-left"></i> Previous Section</button>
+          <button class="btn btn-primary" data-goto="phonk">Next Section <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHAPTER 5: PHONK -->
+    <section class="view-panel chapter-panel" id="panel-phonk" data-panel="phonk" data-track="phonk">
+      <div class="panel-inner phonk-content">
+        <header class="chapter-header">
+          <span class="chapter-badge">Miguel Miguel Miguel</span>
+          <h2 class="chapter-title">Miguel Miguel Miguel Miguel Miguel</h2>
+          <p class="chapter-mood">Miguel Miguel Miguel Miguel Miguel Miguel Miguel</p>
+        </header>
+
+        <div class="glass chapter-intro subsection">
+          <p>Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel</p>
+        </div>
+
+        <div class="subsection photo-card">
+          <div class="photo-wrap"><img src="images/phonk.png" alt="Miguel"></div>
+          <div class="photo-caption">
+            <h3>Miguel Miguel Miguel Miguel</h3>
+            <p class="funny">Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel</p>
+            <p class="note">Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel</p>
+          </div>
+        </div>
+
+        <div class="glass chapter-intro subsection">
+          <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;margin-bottom:0.75rem;">Miguel Miguel Miguel Miguel Miguel</h3>
+          <p>Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel</p>
+          <p class="note" style="margin-top:1rem;border-left:3px solid var(--accent-2);padding:0.85rem 1rem;background:rgba(255,255,255,0.15);border-radius:12px;">Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel Miguel</p>
+        </div>
+
+        <div class="section-nav">
+          <button class="btn btn-nav-prev" data-goto="drill"><i class="fa-solid fa-arrow-left"></i> Previous Section</button>
+          <button class="btn btn-primary" data-goto="appreciation">Next Section <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- APPRECIATION FINALE -->
+    <section class="view-panel appreciation-panel" id="panel-appreciation" data-panel="appreciation">
+      <div class="panel-inner appreciation-inner">
+        <header class="chapter-header">
+          <span class="chapter-badge"><i class="fa-solid fa-heart"></i> The End</span>
+          <h2 class="chapter-title">One Last Thank You</h2>
+          <p class="chapter-mood">Soft pink · Warm · From the heart</p>
+        </header>
+
+        <div class="appreciation-divider"></div>
+
+        <div class="glass appreciation-body">
+          <p>Babu, we made it to the end and I mean that in every sense. You trusted me with your <strong>Pro accounts</strong>, and that changed everything. I got to learn, build, experiment, and grow because you believed in me without making it feel like a favor.</p>
+          <p>What might have felt small to you hit different on my end. <strong>Much bigger than you probably realize.</strong> This whole journey every chapter, every song, every ridiculous Miguel moment exists because of your generosity.</p>
+          <p>Thank you for being a real one. Thank you for showing up. Thank you for being <strong>Babu Sengo</strong>.</p>
+        </div>
+
+        <p class="finale-quote">
+          Some people help without expecting anything in return.<br>
+          Those people leave a bigger impact than they realize.<br>
+          Thank you, <span class="name">Melvin</span>.
+        </p>
+        <p class="finale-footer">
+          Made with appreciation, respect, and a lot of gratitude
+          <i class="fa-solid fa-heart finale-heart"></i>
+        </p>
+
+        <div class="section-nav">
+          <button class="btn btn-nav-prev" data-goto="phonk"><i class="fa-solid fa-arrow-left"></i> Previous Section</button>
+          <button class="btn btn-primary" disabled>Next Section <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Player -->
+  <div class="player glass" id="player">
+    <div class="player-label">Now Playing</div>
+    <div class="player-track-name" id="playerTrackName">—</div>
+    <div class="player-row">
+      <button class="player-btn" id="playerToggle" aria-label="Play/Pause">
+        <i class="fa-solid fa-play" id="playerIcon"></i>
+      </button>
+      <div class="player-progress">
+        <div class="player-times">
+          <span id="playerCurrent">0:00</span>
+          <span id="playerDuration">0:00</span>
+        </div>
+        <div class="player-bar" id="playerBar">
+          <div class="player-fill" id="playerFill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chapter transition modal -->
+  <div class="modal-overlay" id="transitionModal">
+    <div class="modal glass">
+      <div class="modal-icon" id="transitionIcon"><i class="fa-solid fa-route"></i></div>
+      <h2 id="transitionTitle">Continuing the Journey</h2>
+      <p id="transitionBody">You're about to move to the next chapter.</p>
+      <p class="modal-detail" id="transitionDetail">The music and atmosphere will change.</p>
+      <div class="modal-actions">
+        <button class="btn btn-ghost" id="transitionCancel">Stay Here</button>
+        <button class="btn btn-primary" id="transitionConfirm">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio-anime" src="music/anime.mp3" preload="metadata"></audio>
+  <audio id="audio-pop" src="music/pop.mp3" preload="metadata"></audio>
+  <audio id="audio-country" src="music/country.mp3" preload="metadata"></audio>
+  <audio id="audio-drill" src="music/drill.mp3" preload="metadata"></audio>
+  <audio id="audio-phonk" src="music/phonk.mp3" preload="metadata"></audio>
+
+  <script>
+    const CHAPTER_ORDER = ['anime', 'pop', 'country', 'drill', 'phonk'];
+    const NAV_ORDER = ['hero', ...CHAPTER_ORDER, 'appreciation'];
+
+    const CHAPTER_INFO = {
+      anime:   { num: 'I',   title: 'Main Character Arc',       track: 'Anime',   icon: 'fa-star' },
+      pop:     { num: 'II',  title: 'Friendship Montage',       track: 'Pop',     icon: 'fa-heart' },
+      country: { num: 'III', title: 'Sunset Gratitude',         track: 'Country', icon: 'fa-sun' },
+      drill:   { num: 'IV',  title: 'Cold Confidence',          track: 'Drill',   icon: 'fa-bolt' },
+      phonk:   { num: 'V',   title: 'Final Boss of Gratitude',  track: 'Phonk',   icon: 'fa-skull' }
+    };
+
+    const THEME_FX = {
+      landing: { icons: ['fa-heart', 'fa-sparkles', 'fa-heart'], chars: ['♥', '✦', '♡'] },
+      anime:   { icons: ['fa-star', 'fa-sparkles', 'fa-wand-magic-sparkles'], chars: ['✦', '★', '✧'] },
+      pop:     { icons: ['fa-heart', 'fa-heart', 'fa-circle'],               chars: ['♥', '○', '♡'] },
+      country: { icons: ['fa-sun', 'fa-cloud-sun', 'fa-star'],               chars: ['☀', '✦', '★'] },
+      drill:   { icons: ['fa-bolt', 'fa-diamond', 'fa-circle'],                chars: ['◆', '▲', '●'] },
+      phonk:   { icons: ['fa-skull', 'fa-fire', 'fa-bolt'],                    chars: ['▓', '░', '█'] }
+    };
+
+    let currentPanel = 'hero';
+    let currentTrack = null;
+    let pendingNext = null;
+    let transitioning = false;
+    let fxInterval = null;
+    let rainInterval = null;
+    let rainActive = false;
+    let emojiCount = 0;
+    const MAX_EMOJIS = 60;
+    const FADE_MS = 1200;
+
+    const experience = document.getElementById('experience');
+    const fxLayer = document.getElementById('fxLayer');
+    const emojiRain = document.getElementById('emojiRain');
+    const phonkFade = document.getElementById('phonkFade');
+    const chapterFade = document.getElementById('chapterFade');
+    const player = document.getElementById('player');
+    const transitionModal = document.getElementById('transitionModal');
+    const chapterNowPlaying = document.getElementById('chapterNowPlaying');
+
+    const panels = {};
+    CHAPTER_ORDER.forEach(id => { panels[id] = document.getElementById('panel-' + id); });
+    panels.hero = document.getElementById('panel-hero');
+    panels.appreciation = document.getElementById('panel-appreciation');
+
+    function getAudio(id) { return document.getElementById('audio-' + id); }
+
+    function formatTime(s) {
+      if (!s || isNaN(s)) return '0:00';
+      const m = Math.floor(s / 60);
+      const sec = Math.floor(s % 60);
+      return m + ':' + String(sec).padStart(2, '0');
+    }
+
+    function getPanel(id) { return panels[id]; }
+
+    /* ── Theme & FX ── */
+    function setTheme(theme) {
+      document.body.setAttribute('data-theme', theme);
+      spawnFx(theme);
+    }
+
+    function spawnFx(theme) {
+      fxLayer.innerHTML = '';
+      clearInterval(fxInterval);
+      const cfg = THEME_FX[theme];
+      if (!cfg) return;
+
+      function addParticle() {
+        const el = document.createElement('div');
+        el.className = 'fx-item';
+        if (Math.random() > 0.45) {
+          const icon = cfg.icons[Math.floor(Math.random() * cfg.icons.length)];
+          el.innerHTML = '<i class="fa-solid ' + icon + '"></i>';
+          el.style.fontSize = (Math.random() * 14 + 8) + 'px';
+        } else {
+          el.textContent = cfg.chars[Math.floor(Math.random() * cfg.chars.length)];
+          el.style.fontSize = (Math.random() * 12 + 10) + 'px';
+        }
+        el.style.left = Math.random() * 100 + '%';
+        el.style.animationDuration = (Math.random() * 14 + 10) + 's';
+        fxLayer.appendChild(el);
+        setTimeout(() => el.remove(), 24000);
+      }
+
+      for (let i = 0; i < 18; i++) addParticle();
+      fxInterval = setInterval(addParticle, 700);
+    }
+
+    function updateChapterBadge(panelId) {
+      if (panelId === 'hero' || panelId === 'appreciation') {
+        chapterNowPlaying.classList.remove('visible');
+        return;
+      }
+      if (panelId === 'phonk') {
+        chapterNowPlaying.textContent = 'Miguel Miguel Miguel Miguel Miguel';
+        chapterNowPlaying.classList.add('visible');
+        return;
+      }
+      const info = CHAPTER_INFO[panelId];
+      if (!info) return;
+      chapterNowPlaying.innerHTML = '<i class="fa-solid ' + info.icon + '"></i> Chapter ' + info.num + ' · Now Playing: ' + info.track;
+      chapterNowPlaying.classList.add('visible');
+    }
+
+    /* ── Emoji rain ── */
+    function stopEmojiRain() {
+      rainActive = false;
+      clearInterval(rainInterval);
+      emojiRain.innerHTML = '';
+      emojiCount = 0;
+    }
+
+    function spawnEmoji() {
+      if (!rainActive || emojiCount >= MAX_EMOJIS) return;
+      const el = document.createElement('span');
+      el.className = 'rain-emoji';
+      el.textContent = '🫵🏾';
+      el.style.left = (Math.random() * (window.innerWidth - 40)) + 'px';
+      el.style.fontSize = (Math.random() * 1.6 + 0.7) + 'rem';
+      el.style.animationDuration = (Math.random() * 2.5 + 2) + 's';
+      emojiRain.appendChild(el);
+      emojiCount++;
+      el.addEventListener('animationend', () => { el.remove(); emojiCount--; });
+    }
+
+    function startEmojiRain() {
+      stopEmojiRain();
+      rainActive = true;
+      for (let i = 0; i < 12; i++) setTimeout(spawnEmoji, i * 120);
+      rainInterval = setInterval(() => { spawnEmoji(); spawnEmoji(); }, 350);
+    }
+
+    function clearPhonkEffects() {
+      stopEmojiRain();
+      experience.classList.remove('phonk-glitch');
+      phonkFade.classList.remove('active');
+    }
+
+    /* ── Audio fade ── */
+    function fadeVolume(audio, from, to, duration) {
+      return new Promise(resolve => {
+        if (!audio) { resolve(); return; }
+        const steps = 30;
+        const stepTime = duration / steps;
+        let vol = from;
+        const delta = (to - from) / steps;
+        let i = 0;
+        audio.volume = from;
+        const interval = setInterval(() => {
+          vol += delta;
+          audio.volume = Math.max(0, Math.min(1, vol));
+          i++;
+          if (i >= steps) {
+            clearInterval(interval);
+            audio.volume = to;
+            resolve();
+          }
+        }, stepTime);
+      });
+    }
+
+    function updatePlayerUI() {
+      if (!currentTrack) return;
+      const audio = getAudio(currentTrack);
+      const info = CHAPTER_INFO[currentTrack];
+      document.getElementById('playerTrackName').textContent =
+        currentPanel === 'appreciation' ? 'Pop One Last Thank You' :
+        currentTrack === 'phonk' ? 'Miguel Miguel Miguel Miguel' :
+        info.track + ' ' + info.title;
+      document.getElementById('playerCurrent').textContent = formatTime(audio.currentTime);
+      document.getElementById('playerDuration').textContent = formatTime(audio.duration);
+      document.getElementById('playerFill').style.width = (audio.duration ? (audio.currentTime / audio.duration) * 100 : 0) + '%';
+      document.getElementById('playerIcon').className = audio.paused ? 'fa-solid fa-play' : 'fa-solid fa-pause';
+    }
+
+    async function startChapterMusic(trackId) {
+      clearPhonkEffects();
+
+      if (currentTrack && currentTrack !== trackId) {
+        const oldAudio = getAudio(currentTrack);
+        await fadeVolume(oldAudio, oldAudio.volume, 0, FADE_MS);
+        oldAudio.pause();
+        oldAudio.volume = 1;
+      }
+
+      currentTrack = trackId;
+      const audio = getAudio(trackId);
+      setTheme(trackId);
+
+      if (trackId === 'phonk') {
+        phonkFade.classList.add('active');
+        await new Promise(r => setTimeout(r, 650));
+        phonkFade.classList.remove('active');
+        await new Promise(r => setTimeout(r, 400));
+        experience.classList.add('phonk-glitch');
+        startEmojiRain();
+      }
+
+      audio.volume = 0;
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+      player.classList.add('visible');
+      await fadeVolume(audio, 0, 1, FADE_MS);
+      updatePlayerUI();
+    }
+
+    /* ── Panel switching ── */
+    function showPanel(panelId) {
+      Object.keys(panels).forEach(id => {
+        panels[id].classList.toggle('active', id === panelId);
+        if (id === panelId) panels[id].scrollTop = 0;
+      });
+      currentPanel = panelId;
+      updateChapterBadge(panelId);
+    }
+
+    async function goToHero() {
+      if (transitioning) return;
+      transitioning = true;
+      chapterFade.classList.add('active');
+
+      if (currentTrack) {
+        const oldAudio = getAudio(currentTrack);
+        await fadeVolume(oldAudio, oldAudio.volume, 0, FADE_MS);
+        oldAudio.pause();
+        oldAudio.volume = 1;
+        currentTrack = null;
+      }
+
+      clearPhonkEffects();
+      await new Promise(r => setTimeout(r, 300));
+      showPanel('hero');
+      setTheme('landing');
+      player.classList.remove('visible');
+      chapterFade.classList.remove('active');
+      transitioning = false;
+    }
+
+    async function goToAppreciation() {
+      if (transitioning) return;
+      transitioning = true;
+      chapterFade.classList.add('active');
+
+      if (currentTrack) {
+        const oldAudio = getAudio(currentTrack);
+        await fadeVolume(oldAudio, oldAudio.volume, 0, FADE_MS);
+        oldAudio.pause();
+        oldAudio.volume = 1;
+      }
+
+      clearPhonkEffects();
+      await new Promise(r => setTimeout(r, 350));
+      showPanel('appreciation');
+      setTheme('landing');
+
+      currentTrack = 'pop';
+      const pop = getAudio('pop');
+      pop.volume = 0;
+      pop.currentTime = 0;
+      pop.play().catch(() => {});
+      player.classList.add('visible');
+      await fadeVolume(pop, 0, 0.85, FADE_MS);
+      updatePlayerUI();
+
+      chapterFade.classList.remove('active');
+      transitioning = false;
+    }
+
+    async function transitionToChapter(nextId) {
+      if (transitioning) return;
+      transitioning = true;
+      transitionModal.classList.remove('open', 'phonk-transition');
+
+      chapterFade.classList.add('active');
+
+      if (currentTrack) {
+        const oldAudio = getAudio(currentTrack);
+        await fadeVolume(oldAudio, oldAudio.volume, 0, FADE_MS);
+        oldAudio.pause();
+        oldAudio.volume = 1;
+      }
+
+      await new Promise(r => setTimeout(r, 300));
+      showPanel(nextId);
+
+      await startChapterMusic(nextId);
+
+      chapterFade.classList.remove('active');
+      transitioning = false;
+    }
+
+    function openPhonkTransitionModal() {
+      pendingNext = 'phonk';
+      transitionModal.classList.add('phonk-transition');
+      document.getElementById('transitionIcon').innerHTML = '⚠️';
+      document.getElementById('transitionTitle').textContent = 'Entering the Final Chapter';
+      document.getElementById('transitionBody').textContent = 'Dangerous levels of gratitude detected ahead.';
+      document.getElementById('transitionDetail').textContent = 'The music will change. The website may lose its mind. Proceed only if you can handle it.';
+      document.getElementById('transitionConfirm').textContent = 'I can handle it';
+      transitionModal.classList.add('open');
+    }
+
+    function requestNavigation(targetId) {
+      if (transitioning || targetId === currentPanel) return;
+
+      if (targetId === 'hero') {
+        goToHero();
+        return;
+      }
+
+      if (targetId === 'phonk') {
+        openPhonkTransitionModal();
+        return;
+      }
+
+      if (targetId === 'appreciation') {
+        goToAppreciation();
+        return;
+      }
+
+      if (currentPanel === 'hero') {
+        startJourneyTo(targetId);
+        return;
+      }
+
+      if (currentPanel === 'appreciation') {
+        transitionToChapter(targetId);
+        return;
+      }
+
+      transitionToChapter(targetId);
+    }
+
+    async function startJourneyTo(chapterId) {
+      if (transitioning) return;
+      transitioning = true;
+      chapterFade.classList.add('active');
+      await new Promise(r => setTimeout(r, 400));
+      showPanel(chapterId || 'anime');
+      await startChapterMusic(chapterId || 'anime');
+      chapterFade.classList.remove('active');
+      transitioning = false;
+    }
+
+    /* ── Start journey & navigation ── */
+    document.getElementById('btnStart').addEventListener('click', () => startJourneyTo('anime'));
+
+    document.querySelectorAll('[data-goto]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (btn.disabled) return;
+        requestNavigation(btn.dataset.goto);
+      });
+    });
+
+    document.getElementById('transitionConfirm').addEventListener('click', () => {
+      if (pendingNext) {
+        transitionModal.classList.remove('open', 'phonk-transition');
+        transitionToChapter(pendingNext);
+        pendingNext = null;
+      }
+    });
+
+    document.getElementById('transitionCancel').addEventListener('click', () => {
+      pendingNext = null;
+      transitionModal.classList.remove('open', 'phonk-transition');
+    });
+
+    transitionModal.addEventListener('click', e => {
+      if (e.target === transitionModal) {
+        pendingNext = null;
+        transitionModal.classList.remove('open', 'phonk-transition');
+      }
+    });
+
+    /* ── Player controls ── */
+    document.getElementById('playerToggle').addEventListener('click', () => {
+      if (!currentTrack) return;
+      const audio = getAudio(currentTrack);
+      if (audio.paused) {
+        audio.play().catch(() => {});
+        if (currentTrack === 'phonk') startEmojiRain();
+      } else {
+        audio.pause();
+        if (currentTrack === 'phonk') stopEmojiRain();
+      }
+      updatePlayerUI();
+    });
+
+    document.getElementById('playerBar').addEventListener('click', e => {
+      if (!currentTrack) return;
+      const audio = getAudio(currentTrack);
+      const rect = e.currentTarget.getBoundingClientRect();
+      audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+      updatePlayerUI();
+    });
+
+    CHAPTER_ORDER.forEach(id => {
+      const audio = getAudio(id);
+      audio.volume = 1;
+      audio.addEventListener('timeupdate', () => { if (currentTrack === id) updatePlayerUI(); });
+      audio.addEventListener('loadedmetadata', () => { if (currentTrack === id) updatePlayerUI(); });
+      audio.addEventListener('ended', () => {
+        if (currentTrack === id) {
+          document.getElementById('playerIcon').className = 'fa-solid fa-play';
+          if (id === 'phonk') stopEmojiRain();
+        }
+      });
+    });
+
+    spawnFx('landing');
+  </script>
+</body>
+</html>
