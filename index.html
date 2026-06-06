@@ -514,7 +514,11 @@
       .photo-card { grid-template-columns: 1fr; }
       .photo-wrap img { height: 260px; }
       .player { left: 1rem; right: 1rem; width: auto; }
-      .panel-inner { padding-bottom: 10rem; }
+      .panel-inner { padding-bottom: 1.5rem; }
+      .appreciation-inner { padding-bottom: 0; }
+      .section-nav {
+        padding-bottom: calc(12rem + env(safe-area-inset-bottom, 0px));
+      }
     }
   </style>
 </head>
